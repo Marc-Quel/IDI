@@ -85,7 +85,11 @@ void MyGLWidget::paintGL() {
     // Esborrem el frame-buffer
     glClear (GL_COLOR_BUFFER_BIT);
 
+    //actualitzem la projectTransform
+
+    projectTransform();
     // Carreguem la transformació de model
+    
     modelTransform ();
 
     // Activem el VAO per a pintar la caseta 
@@ -106,10 +110,25 @@ void MyGLWidget::paintGL() {
 void MyGLWidget::resizeGL(int w, int h) {
     BL2GLWidget::resizeGL(w,h);
     float rav = float(w) / float(h);
-    //Si rav > 1 nomes cal fer aixo
-    raw = rav;
-    //Si rav < 1 llavors hem de modificar el fov, perque no es queda espai als costats
-    if (rav < 1.0) FOV = 2*glm::atan(glm::tan(FOVini/2)/rav);
+    if (perspectiva) {
+        //Si rav > 1 nomes cal fer aixo
+        raw = rav;
+        //Si rav < 1 llavors hem de modificar el fov, perque no es queda espai als costats
+        if (rav < 1.0) FOV = 2*glm::atan(glm::tan(FOVini/2)/rav);
+    } else {
+        if (rav > 1.0) {
+            l = -escenaRadi*rav;
+            r = escenaRadi*rav;
+            b = -escenaRadi;
+            t = escenaRadi;
+        }
+        if (rav < 1.0) {
+            l = -escenaRadi;
+            r = escenaRadi;
+            b = -escenaRadi*rav;
+            t = escenaRadi*rav;
+        }
+    }
     projectTransform();
     glViewport(0,0,w,h);
 }
@@ -262,7 +281,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
       break;
     }
     case Qt::Key_O: { // canviar perspectiva
-      if (perspectiva) perspectiva = 0;
+      if (perspectiva == 1) perspectiva = 0;
       else perspectiva = 1;
       break;
     }
