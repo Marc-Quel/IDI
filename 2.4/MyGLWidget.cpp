@@ -526,3 +526,14 @@ void MyGLWidget::changeTerra(int n, int r, int g, int b) {
     glBindVertexArray(0);
     update();
 }
+void MyGLWidget::changeFons(int n, int r, int g, int b) {
+    makeCurrent();
+    float fr = float(r);
+    float fg = float(g);
+    float fb = float(b);
+    fr = fr*0.003921;
+    fg = fg*0.003921;
+    fb = fb*0.003921;
+    glClearColor(fr, fg, fb, 1.0); // defineix color de fons (d'esborrat)
+    update();
+}

@@ -119,6 +119,9 @@
            <property name="maximum">
             <number>255</number>
            </property>
+           <property name="value">
+            <number>127</number>
+           </property>
           </widget>
          </item>
          <item>
@@ -126,11 +129,17 @@
            <property name="maximum">
             <number>255</number>
            </property>
+           <property name="value">
+            <number>178</number>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QSpinBox" name="spinBox_5">
            <property name="maximum">
+            <number>255</number>
+           </property>
+           <property name="value">
             <number>255</number>
            </property>
           </widget>
@@ -140,7 +149,7 @@
        <item>
         <widget class="MyLabel" name="label_6">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0,0,0);</string>
+          <string notr="true">background-color: rgb(127,178,255);</string>
          </property>
          <property name="text">
           <string/>
@@ -273,6 +282,7 @@
     <slot>changePsi(int)</slot>
     <slot>changeTheta(int)</slot>
     <slot>changeTerra(int,int,int,int)</slot>
+    <slot>changeFons(int,int,int,int)</slot>
    </slots>
   </customwidget>
   <customwidget>
@@ -296,7 +306,7 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>866</x>
+     <x>815</x>
      <y>706</y>
     </hint>
     <hint type="destinationlabel">
@@ -332,7 +342,7 @@
      <y>585</y>
     </hint>
     <hint type="destinationlabel">
-     <x>681</x>
+     <x>630</x>
      <y>705</y>
     </hint>
    </hints>
@@ -360,11 +370,11 @@
    <slot>changeFOV(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
+     <x>630</x>
      <y>705</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>613</y>
     </hint>
    </hints>
@@ -376,11 +386,11 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>627</x>
+     <x>600</x>
      <y>692</y>
     </hint>
     <hint type="destinationlabel">
-     <x>681</x>
+     <x>630</x>
      <y>705</y>
     </hint>
    </hints>
@@ -392,11 +402,11 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
+     <x>630</x>
      <y>705</y>
     </hint>
     <hint type="destinationlabel">
-     <x>627</x>
+     <x>600</x>
      <y>699</y>
     </hint>
    </hints>
@@ -444,7 +454,7 @@
      <y>634</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>422</y>
     </hint>
    </hints>
@@ -460,7 +470,7 @@
      <y>663</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>484</y>
     </hint>
    </hints>
@@ -504,11 +514,11 @@
    <slot>scaleModel(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>768</x>
+     <x>717</x>
      <y>682</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>624</y>
     </hint>
    </hints>
@@ -520,11 +530,11 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>778</x>
+     <x>751</x>
      <y>175</y>
     </hint>
     <hint type="destinationlabel">
-     <x>777</x>
+     <x>726</x>
      <y>702</y>
     </hint>
    </hints>
@@ -536,11 +546,11 @@
    <slot>changePsi(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>856</x>
+     <x>805</x>
      <y>463</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>171</y>
     </hint>
    </hints>
@@ -556,7 +566,7 @@
      <y>453</y>
     </hint>
     <hint type="destinationlabel">
-     <x>778</x>
+     <x>751</x>
      <y>102</y>
     </hint>
    </hints>
@@ -568,7 +578,7 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>778</x>
+     <x>751</x>
      <y>30</y>
     </hint>
     <hint type="destinationlabel">
@@ -584,7 +594,7 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>778</x>
+     <x>751</x>
      <y>56</y>
     </hint>
     <hint type="destinationlabel">
@@ -652,8 +662,24 @@
      <y>400</y>
     </hint>
     <hint type="destinationlabel">
-     <x>779</x>
+     <x>751</x>
      <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>label_6</sender>
+   <signal>changeColTerra(int,int,int,int)</signal>
+   <receiver>widget</receiver>
+   <slot>changeFons(int,int,int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>783</x>
+     <y>396</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>728</x>
+     <y>306</y>
     </hint>
    </hints>
   </connection>

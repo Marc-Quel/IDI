@@ -13,7 +13,7 @@ class MyLabel : public QLabel {
     signals:
         void changeColTerra(int n, int r, int g, int b);
     private:
-        int r = 0;
-        int g = 0;
-        int b = 0;
+        int r = 127;
+        int g = 178;
+        int b = 255;
 };

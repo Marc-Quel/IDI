@@ -141,18 +141,21 @@ public:
         spinBox_3 = new QSpinBox(MyForm);
         spinBox_3->setObjectName(QString::fromUtf8("spinBox_3"));
         spinBox_3->setMaximum(255);
+        spinBox_3->setValue(127);
 
         horizontalLayout_3->addWidget(spinBox_3);
 
         spinBox_4 = new QSpinBox(MyForm);
         spinBox_4->setObjectName(QString::fromUtf8("spinBox_4"));
         spinBox_4->setMaximum(255);
+        spinBox_4->setValue(178);
 
         horizontalLayout_3->addWidget(spinBox_4);
 
         spinBox_5 = new QSpinBox(MyForm);
         spinBox_5->setObjectName(QString::fromUtf8("spinBox_5"));
         spinBox_5->setMaximum(255);
+        spinBox_5->setValue(255);
 
         horizontalLayout_3->addWidget(spinBox_5);
 
@@ -161,7 +164,7 @@ public:
 
         label_6 = new MyLabel(MyForm);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setStyleSheet(QString::fromUtf8("background-color: rgb(0,0,0);"));
+        label_6->setStyleSheet(QString::fromUtf8("background-color: rgb(127,178,255);"));
         label_6->setAlignment(Qt::AlignCenter);
 
         verticalLayout_4->addWidget(label_6);
@@ -270,6 +273,7 @@ public:
         QObject::connect(spinBox_4, SIGNAL(valueChanged(int)), label_6, SLOT(changeGreen(int)));
         QObject::connect(spinBox_5, SIGNAL(valueChanged(int)), label_6, SLOT(changeBlue(int)));
         QObject::connect(label_6, SIGNAL(changeColTerra(int,int,int,int)), widget, SLOT(changeTerra(int,int,int,int)));
+        QObject::connect(label_6, SIGNAL(changeColTerra(int,int,int,int)), widget, SLOT(changeFons(int,int,int,int)));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi
