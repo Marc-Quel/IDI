@@ -56,17 +56,21 @@ SOURCES       = main.cpp \
 		MyForm.cpp \
 		BL2GLWidget.cpp \
 		MyGLWidget.cpp \
+		MyLabel.cpp \
 		../assig/Model/model.cpp moc_MyForm.cpp \
 		moc_BL2GLWidget.cpp \
-		moc_MyGLWidget.cpp
+		moc_MyGLWidget.cpp \
+		moc_MyLabel.cpp
 OBJECTS       = main.o \
 		MyForm.o \
 		BL2GLWidget.o \
 		MyGLWidget.o \
+		MyLabel.o \
 		model.o \
 		moc_MyForm.o \
 		moc_BL2GLWidget.o \
-		moc_MyGLWidget.o
+		moc_MyGLWidget.o \
+		moc_MyLabel.o
 DIST          = /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/aarch64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/aarch64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -144,10 +148,12 @@ DIST          = /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		Bloc2_Exemple.pro MyForm.h \
 		BL2GLWidget.h \
-		MyGLWidget.h main.cpp \
+		MyGLWidget.h \
+		MyLabel.h main.cpp \
 		MyForm.cpp \
 		BL2GLWidget.cpp \
 		MyGLWidget.cpp \
+		MyLabel.cpp \
 		../assig/Model/model.cpp
 QMAKE_TARGET  = Bloc2_Exemple
 DESTDIR       = 
@@ -328,8 +334,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents MyForm.h BL2GLWidget.h MyGLWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp MyForm.cpp BL2GLWidget.cpp MyGLWidget.cpp ../assig/Model/model.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents MyForm.h BL2GLWidget.h MyGLWidget.h MyLabel.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp MyForm.cpp BL2GLWidget.cpp MyGLWidget.cpp MyLabel.cpp ../assig/Model/model.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents MyForm.ui $(DISTDIR)/
 
 
@@ -362,14 +368,15 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_MyForm.cpp moc_BL2GLWidget.cpp moc_MyGLWidget.cpp
+compiler_moc_header_make_all: moc_MyForm.cpp moc_BL2GLWidget.cpp moc_MyGLWidget.cpp moc_MyLabel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_MyForm.cpp moc_BL2GLWidget.cpp moc_MyGLWidget.cpp
+	-$(DEL_FILE) moc_MyForm.cpp moc_BL2GLWidget.cpp moc_MyGLWidget.cpp moc_MyLabel.cpp
 moc_MyForm.cpp: MyForm.h \
 		ui_MyForm.h \
 		MyGLWidget.h \
 		BL2GLWidget.h \
 		../assig/Model/model.h \
+		MyLabel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/marc/Downloads/idi/2.4/moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/marc/Downloads/idi/2.4 -I/usr/include/glm -I/home/marc/Downloads/idi/assig/Model -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtOpenGL -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/aarch64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/aarch64-linux-gnu/9/include -I/usr/local/include -I/usr/include/aarch64-linux-gnu -I/usr/include MyForm.h -o moc_MyForm.cpp
@@ -386,6 +393,11 @@ moc_MyGLWidget.cpp: MyGLWidget.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/marc/Downloads/idi/2.4/moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/marc/Downloads/idi/2.4 -I/usr/include/glm -I/home/marc/Downloads/idi/assig/Model -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtOpenGL -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/aarch64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/aarch64-linux-gnu/9/include -I/usr/local/include -I/usr/include/aarch64-linux-gnu -I/usr/include MyGLWidget.h -o moc_MyGLWidget.cpp
 
+moc_MyLabel.cpp: MyLabel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/marc/Downloads/idi/2.4/moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/marc/Downloads/idi/2.4 -I/usr/include/glm -I/home/marc/Downloads/idi/assig/Model -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtOpenGL -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/aarch64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/aarch64-linux-gnu/9/include -I/usr/local/include -I/usr/include/aarch64-linux-gnu -I/usr/include MyLabel.h -o moc_MyLabel.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -396,6 +408,7 @@ compiler_uic_clean:
 ui_MyForm.h: MyForm.ui \
 		/usr/lib/qt5/bin/uic \
 		MyGLWidget.h \
+		MyLabel.h \
 		BL2GLWidget.h \
 		../assig/Model/model.h
 	/usr/lib/qt5/bin/uic MyForm.ui -o ui_MyForm.h
@@ -414,14 +427,16 @@ main.o: main.cpp MyForm.h \
 		ui_MyForm.h \
 		MyGLWidget.h \
 		BL2GLWidget.h \
-		../assig/Model/model.h
+		../assig/Model/model.h \
+		MyLabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 MyForm.o: MyForm.cpp MyForm.h \
 		ui_MyForm.h \
 		MyGLWidget.h \
 		BL2GLWidget.h \
-		../assig/Model/model.h
+		../assig/Model/model.h \
+		MyLabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MyForm.o MyForm.cpp
 
 BL2GLWidget.o: BL2GLWidget.cpp BL2GLWidget.h
@@ -431,6 +446,9 @@ MyGLWidget.o: MyGLWidget.cpp MyGLWidget.h \
 		BL2GLWidget.h \
 		../assig/Model/model.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MyGLWidget.o MyGLWidget.cpp
+
+MyLabel.o: MyLabel.cpp MyLabel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MyLabel.o MyLabel.cpp
 
 model.o: ../assig/Model/model.cpp ../assig/Model/model.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o ../assig/Model/model.cpp
@@ -443,6 +461,9 @@ moc_BL2GLWidget.o: moc_BL2GLWidget.cpp
 
 moc_MyGLWidget.o: moc_MyGLWidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MyGLWidget.o moc_MyGLWidget.cpp
+
+moc_MyLabel.o: moc_MyLabel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MyLabel.o moc_MyLabel.cpp
 
 ####### Install
 

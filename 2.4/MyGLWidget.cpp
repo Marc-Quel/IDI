@@ -496,3 +496,35 @@ void MyGLWidget::changeTheta(int n) {
     viewTransform();
     update();
 }
+void MyGLWidget::changeTerra(int n, int r, int g, int b) {
+    makeCurrent();
+    glm::vec3 terra[6] = {
+	glm::vec3(2.5, 0.0, 2.5),
+	glm::vec3(2.5, 0.0, -2.5),
+	glm::vec3(-2.5, 0.0, -2.5),
+	
+	glm::vec3(2.5, 0.0, 2.5),
+	glm::vec3(-2.5, 0.0, -2.5),
+	glm::vec3(-2.5, 0.0, 2.5)
+  }; 
+    //Vermell
+    if (n == 0) {
+        glm::vec3 colorterra[6] = {
+            glm::vec3(0,0,0),
+            glm::vec3(0,0,0),
+            glm::vec3(0,0,0),
+            
+            glm::vec3(0,0,0),
+            glm::vec3(0,0,0),
+            glm::vec3(0,0,0),
+        };
+    }
+    //Verd
+    else if (n == 1) {
+    //Blau
+    }
+    else {
+
+    }
+    update();
+}

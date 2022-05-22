@@ -17,6 +17,7 @@ class MyGLWidget : public BL2GLWidget {
     void scaleModel(int n);
     void changePsi(int n);
     void changeTheta(int n);
+    void changeTerra(int n, int r, int g, int b);
   signals:
     void FOVchanged(int n);
     void patricioRendered();
