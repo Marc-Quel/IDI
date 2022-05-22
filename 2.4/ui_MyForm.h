@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDial>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
@@ -27,16 +29,27 @@ QT_BEGIN_NAMESPACE
 class Ui_MyForm
 {
 public:
-    QHBoxLayout *horizontalLayout_4;
+    QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout;
     MyGLWidget *widget;
     QHBoxLayout *horizontalLayout;
+    QLabel *label;
     QSlider *horizontalSlider;
     QSpinBox *spinBox;
-    QVBoxLayout *verticalLayout_3;
-    QSpacerItem *verticalSpacer;
-    QGroupBox *groupBox;
+    QLabel *label_2;
+    QSpinBox *spinBox_2;
     QVBoxLayout *verticalLayout_4;
+    QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label_3;
+    QDial *dial;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_4;
+    QDial *dial_2;
+    QRadioButton *radioButton_3;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_5;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QPushButton *pushButton;
@@ -46,8 +59,8 @@ public:
         if (MyForm->objectName().isEmpty())
             MyForm->setObjectName(QString::fromUtf8("MyForm"));
         MyForm->resize(957, 717);
-        horizontalLayout_4 = new QHBoxLayout(MyForm);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_3 = new QHBoxLayout(MyForm);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget = new MyGLWidget(MyForm);
@@ -63,6 +76,11 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label = new QLabel(MyForm);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout->addWidget(label);
+
         horizontalSlider = new QSlider(MyForm);
         horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
         horizontalSlider->setMinimum(1);
@@ -78,34 +96,92 @@ public:
 
         horizontalLayout->addWidget(spinBox);
 
+        label_2 = new QLabel(MyForm);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        horizontalLayout->addWidget(label_2);
+
+        spinBox_2 = new QSpinBox(MyForm);
+        spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
+        spinBox_2->setSingleStep(1);
+        spinBox_2->setStepType(QAbstractSpinBox::DefaultStepType);
+
+        horizontalLayout->addWidget(spinBox_2);
+
 
         verticalLayout->addLayout(horizontalLayout);
 
 
-        horizontalLayout_4->addLayout(verticalLayout);
+        horizontalLayout_3->addLayout(verticalLayout);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_4->addItem(verticalSpacer);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        label_3 = new QLabel(MyForm);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout_2->addWidget(label_3);
+
+        dial = new QDial(MyForm);
+        dial->setObjectName(QString::fromUtf8("dial"));
+        dial->setMaximum(628);
+        dial->setSingleStep(3);
+
+        verticalLayout_2->addWidget(dial);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_4 = new QLabel(MyForm);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        verticalLayout_3->addItem(verticalSpacer);
+        verticalLayout_3->addWidget(label_4);
+
+        dial_2 = new QDial(MyForm);
+        dial_2->setObjectName(QString::fromUtf8("dial_2"));
+        dial_2->setMaximum(628);
+        dial_2->setSingleStep(3);
+
+        verticalLayout_3->addWidget(dial_2);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_3);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_2);
+
+        radioButton_3 = new QRadioButton(MyForm);
+        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
+        radioButton_3->setCheckable(true);
+        radioButton_3->setChecked(true);
+
+        verticalLayout_4->addWidget(radioButton_3);
 
         groupBox = new QGroupBox(MyForm);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        verticalLayout_4 = new QVBoxLayout(groupBox);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_5 = new QVBoxLayout(groupBox);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         radioButton = new QRadioButton(groupBox);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
 
-        verticalLayout_4->addWidget(radioButton);
+        verticalLayout_5->addWidget(radioButton);
 
         radioButton_2 = new QRadioButton(groupBox);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
 
-        verticalLayout_4->addWidget(radioButton_2);
+        verticalLayout_5->addWidget(radioButton_2);
 
 
-        verticalLayout_3->addWidget(groupBox);
+        verticalLayout_4->addWidget(groupBox);
 
         pushButton = new QPushButton(MyForm);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -115,10 +191,10 @@ public:
         sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
         pushButton->setSizePolicy(sizePolicy1);
 
-        verticalLayout_3->addWidget(pushButton);
+        verticalLayout_4->addWidget(pushButton);
 
 
-        horizontalLayout_4->addLayout(verticalLayout_3);
+        horizontalLayout_3->addLayout(verticalLayout_4);
 
 
         retranslateUi(MyForm);
@@ -133,6 +209,14 @@ public:
         QObject::connect(widget, SIGNAL(legoRendered()), radioButton_2, SLOT(click()));
         QObject::connect(radioButton, SIGNAL(clicked(bool)), widget, SLOT(renderPatricio()));
         QObject::connect(radioButton_2, SIGNAL(clicked(bool)), widget, SLOT(renderLego()));
+        QObject::connect(radioButton_3, SIGNAL(clicked(bool)), widget, SLOT(changeProject(bool)));
+        QObject::connect(widget, SIGNAL(projectChanged(bool)), radioButton_3, SLOT(click()));
+        QObject::connect(spinBox_2, SIGNAL(valueChanged(int)), widget, SLOT(scaleModel(int)));
+        QObject::connect(widget, SIGNAL(modelScaled(int)), spinBox_2, SLOT(setValue(int)));
+        QObject::connect(dial, SIGNAL(sliderMoved(int)), widget, SLOT(changePsi(int)));
+        QObject::connect(dial_2, SIGNAL(sliderMoved(int)), widget, SLOT(changeTheta(int)));
+        QObject::connect(widget, SIGNAL(psiChanged(int)), dial, SLOT(setValue(int)));
+        QObject::connect(widget, SIGNAL(thetaChanged(int)), dial_2, SLOT(setValue(int)));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi
@@ -140,6 +224,11 @@ public:
     void retranslateUi(QWidget *MyForm)
     {
         MyForm->setWindowTitle(QApplication::translate("MyForm", "IDI-Lab", nullptr));
+        label->setText(QApplication::translate("MyForm", "FOV", nullptr));
+        label_2->setText(QApplication::translate("MyForm", "Scale", nullptr));
+        label_3->setText(QApplication::translate("MyForm", "Psi", nullptr));
+        label_4->setText(QApplication::translate("MyForm", "Theta", nullptr));
+        radioButton_3->setText(QApplication::translate("MyForm", "Project Type", nullptr));
         groupBox->setTitle(QApplication::translate("MyForm", "Model", nullptr));
         radioButton->setText(QApplication::translate("MyForm", "Patricio", nullptr));
         radioButton_2->setText(QApplication::translate("MyForm", "Lego", nullptr));

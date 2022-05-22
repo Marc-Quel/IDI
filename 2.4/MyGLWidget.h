@@ -13,10 +13,18 @@ class MyGLWidget : public BL2GLWidget {
     void changeFOV(int n);
     void renderPatricio();
     void renderLego();
+    void changeProject(bool n);
+    void scaleModel(int n);
+    void changePsi(int n);
+    void changeTheta(int n);
   signals:
     void FOVchanged(int n);
     void patricioRendered();
     void legoRendered();
+    void projectChanged(bool n);
+    void modelScaled(int n);
+    void psiChanged(int n);
+    void thetaChanged(int n);
 
   protected:
     virtual void initializeGL ( );

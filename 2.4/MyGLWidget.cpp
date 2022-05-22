@@ -337,6 +337,7 @@ void MyGLWidget::calculCapsaModel() {
     }
     //L'altura que volem posarli entre la resta del seu y max i min
     escala = 1.0f/(modelMax.y - modelMin.y);
+    emit modelScaled(escala*100);
     modelCentreBase = glm::vec3((modelMax.x + modelMin.x)/2, modelMin.y, (modelMax.z + modelMin.z)/2);
 }
 
@@ -368,10 +369,12 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
   switch (event->key()) {
     case Qt::Key_S: { // escalar a més gran
       escala += 0.05;
+      emit modelScaled(escala*100);
       break;
     }
     case Qt::Key_D: { // escalar a més petit
       escala -= 0.05;
+      emit modelScaled(escala*100);
       break;
     }
     case Qt::Key_R: { // rotar
@@ -419,11 +422,23 @@ void MyGLWidget::keyPressEvent(QKeyEvent* event)
 }
 void MyGLWidget::mouseMoveEvent(QMouseEvent *e) {
     makeCurrent();
-    if (e->x() > x_ant) girPsi += 0.03;
-    else if (e->x() < x_ant) girPsi -= 0.03;
+    if (e->x() > x_ant) {
+        girPsi += 0.03;
+        emit psiChanged(girPsi*100);
+    }
+    else if (e->x() < x_ant){ 
+        girPsi -= 0.03;
+        emit psiChanged(girPsi*100);
+    }
 
-    if (e->y() > y_ant) girTheta += 0.03;
-    else if (e->y() < y_ant) girTheta -= 0.03;
+    if (e->y() > y_ant) {
+        girTheta += 0.03;
+        emit thetaChanged(girTheta*100);
+    }
+    else if (e->y() < y_ant) {
+        girTheta -= 0.03;
+        emit thetaChanged(girTheta*100);
+    }
 
     x_ant = e->x();
     y_ant = e->y();
@@ -452,5 +467,32 @@ void MyGLWidget::renderPatricio() {
     calculaCapsaEscena();
     calculCentreEscena();
     calculRadiEscena();
+    update();
+}
+void MyGLWidget::changeProject(bool n) {
+    makeCurrent();
+    if (n) perspectiva = 1;
+    else perspectiva = 0;
+    projectTransform();
+    update();
+}
+void MyGLWidget::scaleModel(int n) {
+    makeCurrent();
+    float a = float(n);
+    escala = a/100;
+    update();
+}
+void MyGLWidget::changePsi(int n) {
+    makeCurrent();
+    float a = float(n);
+    girPsi = a/100;
+    viewTransform();
+    update();
+}
+void MyGLWidget::changeTheta(int n) {
+    makeCurrent();
+    float a = float(n);
+    girTheta = a/100;
+    viewTransform();
     update();
 }
