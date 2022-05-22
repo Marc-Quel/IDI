@@ -117,21 +117,21 @@
          <item>
           <widget class="QSpinBox" name="spinBox_3">
            <property name="maximum">
-            <number>1</number>
+            <number>255</number>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QSpinBox" name="spinBox_4">
            <property name="maximum">
-            <number>1</number>
+            <number>255</number>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QSpinBox" name="spinBox_5">
            <property name="maximum">
-            <number>1</number>
+            <number>255</number>
            </property>
           </widget>
          </item>

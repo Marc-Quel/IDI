@@ -140,19 +140,19 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         spinBox_3 = new QSpinBox(MyForm);
         spinBox_3->setObjectName(QString::fromUtf8("spinBox_3"));
-        spinBox_3->setMaximum(1);
+        spinBox_3->setMaximum(255);
 
         horizontalLayout_3->addWidget(spinBox_3);
 
         spinBox_4 = new QSpinBox(MyForm);
         spinBox_4->setObjectName(QString::fromUtf8("spinBox_4"));
-        spinBox_4->setMaximum(1);
+        spinBox_4->setMaximum(255);
 
         horizontalLayout_3->addWidget(spinBox_4);
 
         spinBox_5 = new QSpinBox(MyForm);
         spinBox_5->setObjectName(QString::fromUtf8("spinBox_5"));
-        spinBox_5->setMaximum(1);
+        spinBox_5->setMaximum(255);
 
         horizontalLayout_3->addWidget(spinBox_5);
 
@@ -269,6 +269,7 @@ public:
         QObject::connect(spinBox_3, SIGNAL(valueChanged(int)), label_6, SLOT(changeRed(int)));
         QObject::connect(spinBox_4, SIGNAL(valueChanged(int)), label_6, SLOT(changeGreen(int)));
         QObject::connect(spinBox_5, SIGNAL(valueChanged(int)), label_6, SLOT(changeBlue(int)));
+        QObject::connect(label_6, SIGNAL(changeColTerra(int,int,int,int)), widget, SLOT(changeTerra(int,int,int,int)));
 
         QMetaObject::connectSlotsByName(MyForm);
     } // setupUi

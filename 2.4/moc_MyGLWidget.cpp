@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MyGLWidget_t {
-    QByteArrayData data[17];
-    char stringdata0[189];
+    QByteArrayData data[21];
+    char stringdata0[207];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,14 +47,19 @@ QT_MOC_LITERAL(12, 131, 10), // "renderLego"
 QT_MOC_LITERAL(13, 142, 13), // "changeProject"
 QT_MOC_LITERAL(14, 156, 10), // "scaleModel"
 QT_MOC_LITERAL(15, 167, 9), // "changePsi"
-QT_MOC_LITERAL(16, 177, 11) // "changeTheta"
+QT_MOC_LITERAL(16, 177, 11), // "changeTheta"
+QT_MOC_LITERAL(17, 189, 11), // "changeTerra"
+QT_MOC_LITERAL(18, 201, 1), // "r"
+QT_MOC_LITERAL(19, 203, 1), // "g"
+QT_MOC_LITERAL(20, 205, 1) // "b"
 
     },
     "MyGLWidget\0FOVchanged\0\0n\0patricioRendered\0"
     "legoRendered\0projectChanged\0modelScaled\0"
     "psiChanged\0thetaChanged\0changeFOV\0"
     "renderPatricio\0renderLego\0changeProject\0"
-    "scaleModel\0changePsi\0changeTheta"
+    "scaleModel\0changePsi\0changeTheta\0"
+    "changeTerra\0r\0g\0b"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,7 +69,7 @@ static const uint qt_meta_data_MyGLWidget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,22 +77,23 @@ static const uint qt_meta_data_MyGLWidget[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   84,    2, 0x06 /* Public */,
-       4,    0,   87,    2, 0x06 /* Public */,
-       5,    0,   88,    2, 0x06 /* Public */,
-       6,    1,   89,    2, 0x06 /* Public */,
-       7,    1,   92,    2, 0x06 /* Public */,
-       8,    1,   95,    2, 0x06 /* Public */,
-       9,    1,   98,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
+       4,    0,   92,    2, 0x06 /* Public */,
+       5,    0,   93,    2, 0x06 /* Public */,
+       6,    1,   94,    2, 0x06 /* Public */,
+       7,    1,   97,    2, 0x06 /* Public */,
+       8,    1,  100,    2, 0x06 /* Public */,
+       9,    1,  103,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      10,    1,  101,    2, 0x0a /* Public */,
-      11,    0,  104,    2, 0x0a /* Public */,
-      12,    0,  105,    2, 0x0a /* Public */,
-      13,    1,  106,    2, 0x0a /* Public */,
-      14,    1,  109,    2, 0x0a /* Public */,
-      15,    1,  112,    2, 0x0a /* Public */,
-      16,    1,  115,    2, 0x0a /* Public */,
+      10,    1,  106,    2, 0x0a /* Public */,
+      11,    0,  109,    2, 0x0a /* Public */,
+      12,    0,  110,    2, 0x0a /* Public */,
+      13,    1,  111,    2, 0x0a /* Public */,
+      14,    1,  114,    2, 0x0a /* Public */,
+      15,    1,  117,    2, 0x0a /* Public */,
+      16,    1,  120,    2, 0x0a /* Public */,
+      17,    4,  123,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -106,6 +112,7 @@ static const uint qt_meta_data_MyGLWidget[] = {
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    3,   18,   19,   20,
 
        0        // eod
 };
@@ -130,6 +137,7 @@ void MyGLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 11: _t->scaleModel((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: _t->changePsi((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 13: _t->changeTheta((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: _t->changeTerra((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -215,13 +223,13 @@ int MyGLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

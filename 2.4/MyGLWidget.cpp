@@ -277,13 +277,13 @@ void MyGLWidget::creaBuffers() {
 	glm::vec3(-2.5, 0.0, 2.5)
   }; 
    glm::vec3 colorterra[6] = {
-	glm::vec3(1,0,0),
-	glm::vec3(0,0,1),
-	glm::vec3(0,1,0),
+	glm::vec3(0,0,0),
+	glm::vec3(0,0,0),
+	glm::vec3(0,0,0),
 	
-	glm::vec3(1,0,0),
-	glm::vec3(0,1,0),
-	glm::vec3(0,0,1),
+	glm::vec3(0,0,0),
+	glm::vec3(0,0,0),
+	glm::vec3(0,0,0),
   };
     glGenVertexArrays(1, &VAOT);
     glBindVertexArray(VAOT);
@@ -498,33 +498,31 @@ void MyGLWidget::changeTheta(int n) {
 }
 void MyGLWidget::changeTerra(int n, int r, int g, int b) {
     makeCurrent();
-    glm::vec3 terra[6] = {
-	glm::vec3(2.5, 0.0, 2.5),
-	glm::vec3(2.5, 0.0, -2.5),
-	glm::vec3(-2.5, 0.0, -2.5),
-	
-	glm::vec3(2.5, 0.0, 2.5),
-	glm::vec3(-2.5, 0.0, -2.5),
-	glm::vec3(-2.5, 0.0, 2.5)
-  }; 
-    //Vermell
-    if (n == 0) {
-        glm::vec3 colorterra[6] = {
-            glm::vec3(0,0,0),
-            glm::vec3(0,0,0),
-            glm::vec3(0,0,0),
-            
-            glm::vec3(0,0,0),
-            glm::vec3(0,0,0),
-            glm::vec3(0,0,0),
-        };
-    }
-    //Verd
-    else if (n == 1) {
-    //Blau
-    }
-    else {
+    float fr = float(r);
+    float fg = float(g);
+    float fb = float(b);
+    fr = fr*0.003921;
+    fg = fg*0.003921;
+    fb = fb*0.003921;
+    glm::vec3 colorterra[6] = {
+        glm::vec3(fr,fg,fb),
+        glm::vec3(fr,fg,fb),
+        glm::vec3(fr,fg,fb),
+        
+        glm::vec3(fr,fg,fb),
+        glm::vec3(fr,fg,fb),
+        glm::vec3(fr,fg,fb),
+    };
+    glBindVertexArray(VAOT);
+    GLuint VBOTC;
+    glGenBuffers(1, &VBOTC);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOTC);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colorterra), colorterra, GL_STATIC_DRAW);
 
-    }
+    // Activem l'atribut vertexLoc
+    glVertexAttribPointer(colorLoc, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    glEnableVertexAttribArray(colorLoc);
+
+    glBindVertexArray(0);
     update();
 }
